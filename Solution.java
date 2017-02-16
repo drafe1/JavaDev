@@ -1,20 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package program;
 import java.util.Scanner;
-import java.util.Random;
-/**
- *
- * @author Stas
- */
-public class Solution {
 
-    /**
-     * @param args the command line arguments
-     */
+public class Solution {
     public static void main(String[] args) {
         System.out.println("Добро пожаловать. Ваша задача перевести пассажиров");
         Scanner scan = new Scanner(System.in);
@@ -24,14 +10,15 @@ public class Solution {
         int numberOfPassengers = (int) (15 + Math.random() * 16);
         System.out.println("Нужно перевезти из пункта А в пункт Б " + numberOfPassengers + " пасажиров.");
         int transportType = scan.nextInt();
+        Transport transport;
         while (true) {
             if (transportType == 1) {
-                Bus bus = new Bus(numberOfPassengers);
-                bus.move();
+                transport = new Bus(numberOfPassengers);
+                transport.move();
                 break;
             } else if (transportType == 2) {
-                MicroBus microBus = new MicroBus(numberOfPassengers);
-                microBus.move();
+                transport = new MicroBus(numberOfPassengers);
+                transport.move();
                 break;
             } else {
                 System.out.println("Ошибка ввода, попробуйте еще");
